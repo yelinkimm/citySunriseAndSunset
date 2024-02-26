@@ -26,8 +26,8 @@ interface ICities {
 
 const Container = styled.div`
   padding: 0px 20px;
-  max-width: 500px;
-  width: 500px;
+  max-width: 400px;
+  width: 400px;
   margin: 0 auto;
 `;
 
@@ -79,7 +79,7 @@ function Cities() {
   return (
     <Container>
       <Header>
-        <Title>Cities</Title>
+        {/* <Title>Cities</Title> */}
       </Header>
       {
         isLoading ? 

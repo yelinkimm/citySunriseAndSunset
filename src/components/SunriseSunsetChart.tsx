@@ -8,18 +8,39 @@ import {
   LineElement,
   Legend,
   Tooltip,
-  ChartData,
-  Ticks
+  ChartData
 } from 'chart.js';
 import { useEffect, useRef, useState } from "react";
-import { faker } from '@faker-js/faker';
 import { CityInfo } from "../routes/City";
 import _ from "lodash";
 import moment from "moment";
-// import type { Chart, ChartType, ChartData, ChartOptions, DefaultDataPoint, Plugin, UpdateMode } from 'chart.js';
+import styled from "styled-components";
 interface SunriseSunsetChartProps {
   cityInfo: CityInfo;
 }
+
+const Loading = styled.div`
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid #fffefe;
+  border-top-color: #9c88ff;
+  transform: rotate(0deg);
+  animation: spinner 1s linear infinite;
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 ChartJS.register(
   LinearScale,
@@ -30,8 +51,6 @@ ChartJS.register(
   Legend,
   Tooltip
 );
-
-// const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
 
 function triggerTooltip(chart: ChartJS | null) {
   const tooltip = chart?.tooltip;
@@ -120,6 +139,7 @@ const chartRef = useRef<ChartJS>(null);
         // },
       ]
     };
+
     setChartData(data);
     const testdata = _.map(cityInfo?.results, (infoItem) => moment(`${infoItem.date} ${infoItem.sunrise}`).valueOf());
   }, [dateLabels]);
@@ -190,7 +210,7 @@ const chartRef = useRef<ChartJS>(null);
           }
         }
       }}/> : 
-      null
+      <Loading/>
     }
     </>
   );

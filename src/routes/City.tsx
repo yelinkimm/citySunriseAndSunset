@@ -7,7 +7,7 @@ import _ from "lodash";
 
 const Container = styled.div`
   padding: 0px 20px;
-  max-width: 480px;
+  max-width: 560px;
   margin: 0 auto;
 `;
 
@@ -34,6 +34,7 @@ const Overview = styled.div`
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px 20px;
+  margin-bottom: 40px;
   border-radius: 10px;
 `;
 

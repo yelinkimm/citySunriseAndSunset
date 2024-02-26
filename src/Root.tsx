@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom';
 import Clock from './components/Clock';
 
 const GlobalStyle  = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
-  font-family: 'Source Sans Pro', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+  font-family: "Rubik", sans-serif;
   
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -61,8 +61,7 @@ const GlobalStyle  = createGlobalStyle`
   }
 
   body {
-    font-weight: 300;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: "Rubik", sans-serif;
     background-color: ${(props) => props.theme.bgColor};
     color:${(props) => props.theme.textColor};
     line-height: 1.2;
